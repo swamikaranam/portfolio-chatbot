@@ -1,4 +1,6 @@
 /* frontend/css/style.css */
+/* Hero Section */
+
 * {
     margin: 0;
     padding: 0;
@@ -70,8 +72,25 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: url('../assets/hero-bg.jpg') no-repeat center center/cover;
     color: white;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 {
@@ -97,6 +116,8 @@ body {
     border-radius: 25px;
     margin-top: 2rem;
     transition: transform 0.3s;
+    position: relative;
+    z-index: 2;
 }
 
 .btn:hover {
@@ -110,6 +131,60 @@ section {
 
 .about, .skills, .experience, .projects, .contact {
     background: #f8f9fa;
+}
+
+/* About Section */
+.about {
+    background: #f8f9fa;
+    padding: 5rem 0;
+}
+
+.about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem; /* Space between text and image */
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-paragraph {
+    font-size: 1.1rem; /* Slightly larger text */
+    line-height: 1.8; /* Increased line spacing for readability */
+    color: #444; /* Darker gray for better readability */
+    text-align: justify; /* Justify text for better appearance */
+    margin-bottom: 1.5rem; /* Space below paragraph */
+}
+
+.about-paragraph strong {
+    color: #007bff; /* Blue color for emphasized text */
+    font-weight: 600; /* Slightly bolder */
+}
+
+.highlight-name {
+    color: #28a745; /* Green color for your name */
+    font-weight: 700; /* Extra bold for your name */
+    font-size: 1.2rem; /* Slightly larger for your name */
+}
+
+.about-image {
+    flex: 0 0 300px; /* Fixed width for the image */
+    border-radius: 15px; /* Rounded corners for the image */
+    overflow: hidden; /* Ensures image stays within rounded corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Shadow for depth */
+}
+
+.about-image img {
+    width: 100%; /* Make image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space below image */
 }
 
 .skills-grid {
@@ -291,6 +366,22 @@ section {
     
     .container {
         padding: 0 15px;
+    }
+
+    /* Responsive Design for About Section */
+    .about-content {
+        flex-direction: column; /* Stack text and image vertically on mobile */
+        text-align: center; /* Center text on mobile */
+        gap: 2rem;
+    }
+    
+    .about-image {
+        flex: none; /* Remove fixed width on mobile */
+        max-width: 250px; /* Limit image size on mobile */
+    }
+    
+    .about-paragraph {
+        text-align: left; /* Left align on mobile as justify can look bad */
     }
 }
 
